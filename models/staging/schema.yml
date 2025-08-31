@@ -1,0 +1,28 @@
+version: 2
+models:
+  - name: stg_date_dim
+    columns:
+      - name: date_sk
+        tests: [not_null, unique]
+      - name: date
+        tests: [not_null]
+  - name: stg_customer
+    columns:
+      - name: customer_sk
+        tests: [not_null, unique]
+      - name: customer_id
+        tests: [not_null]
+  - name: stg_store
+    columns:
+      - name: store_sk
+        tests: [not_null, unique]
+  - name: stg_store_sales
+    columns:
+      - name: ticket_number
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+  - name: stg_store_returns
+    columns:
+      - name: ticket_number
+        tests:
+          - dbt_expectations.expect_column_values_to_not_be_null

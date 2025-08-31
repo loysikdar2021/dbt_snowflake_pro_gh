@@ -1,0 +1,11 @@
+version: 2
+sources:
+  - name: tpcds
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: "{{ var('tpcds_schema') }}"
+    tables:
+      - name: DATE_DIM
+      - name: CUSTOMER
+      - name: STORE
+      - name: STORE_SALES
+      - name: STORE_RETURNS

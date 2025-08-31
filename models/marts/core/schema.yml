@@ -1,0 +1,30 @@
+version: 2
+models:
+  - name: dim_customer
+    columns:
+      - name: customer_sk
+        tests: [not_null, unique]
+  - name: dim_store
+    columns:
+      - name: store_sk
+        tests: [not_null, unique]
+  - name: fct_store_sales
+    columns:
+      - name: ticket_number
+        tests: [not_null]
+      - name: item_sk
+        tests: [not_null]
+      - name: sold_date
+        tests: [not_null]
+  - name: fct_store_returns
+    columns:
+      - name: ticket_number
+        tests: [not_null]
+      - name: item_sk
+        tests: [not_null]
+      - name: return_date
+        tests: [not_null]
+  - name: revenue_daily
+    columns:
+      - name: sold_date
+        tests: [not_null]
